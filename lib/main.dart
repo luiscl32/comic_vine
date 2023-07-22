@@ -1,3 +1,4 @@
+import 'package:comic_vine/presentation/router/router.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -9,12 +10,11 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        body: Center(
-          child: Text('comic vine init app'),
-        ),
+    return SafeArea(
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        routes: CustomRouter.routes,
+        initialRoute: RoutesPaths.comicList,
       ),
     );
   }

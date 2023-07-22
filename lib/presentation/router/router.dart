@@ -8,8 +8,8 @@ class RoutesPaths {
   static String comicDetail = '/comic_detail';
 }
 
-class Router {
-  Router._();
+class CustomRouter {
+  CustomRouter._();
 
   static Map<String, WidgetBuilder> routes = {
     RoutesPaths.comicList: (context) => const ComicListPage(),

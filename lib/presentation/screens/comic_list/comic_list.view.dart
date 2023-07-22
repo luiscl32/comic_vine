@@ -1,3 +1,4 @@
+import 'package:comic_vine/presentation/screens/comic_list/widgets/comic_list.widgets.dart';
 import 'package:flutter/material.dart';
 
 class ComicListView extends StatelessWidget {
@@ -5,10 +6,6 @@ class ComicListView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: Center(
-        child: Text('ComicListView'),
-      ),
-    );
+    return const GridList();
   }
 }
