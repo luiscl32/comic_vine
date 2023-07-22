@@ -15,6 +15,7 @@ class MainApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         routes: CustomRouter.routes,
         initialRoute: RoutesPaths.comicList,
+        color: Colors.white,
       ),
     );
   }

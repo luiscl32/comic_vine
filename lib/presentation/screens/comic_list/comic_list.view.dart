@@ -6,6 +6,15 @@ class ComicListView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const GridList();
+    return const Column(
+      children: [
+        ActionBar(),
+        SizedBox(
+          height: 12,
+        ),
+        Expanded(child: VerticalList()),
+        //Expanded(child: GridList()),
+      ],
+    );
   }
 }

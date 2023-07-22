@@ -6,6 +6,22 @@ class ComicListPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const ComicListView();
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Commic book'),
+        centerTitle: true,
+        backgroundColor: Colors.white,
+        titleTextStyle: const TextStyle(
+          color: Colors.black,
+          fontSize: 28,
+        ),
+      ),
+      body: const Padding(
+        padding: EdgeInsets.symmetric(
+          horizontal: 16,
+        ),
+        child: ComicListView(),
+      ),
+    );
   }
 }
