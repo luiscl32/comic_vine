@@ -5,11 +5,11 @@ import 'package:dio/dio.dart';
 
 class ComicListRepository extends AbstractComicListRepository {
   @override
-  Future<LastIssues?> fetchLastIssues() async {
+  Future<LastIssues?> fetchLastIssues({required String page}) async {
     try {
       final Dio dio = Dio();
-      print(ApiConfig.getRequestUrl('issues'));
-      final response = await dio.get(ApiConfig.getRequestUrl('issues'));
+      print(ApiConfig.getRequestUrl('issues', page));
+      final response = await dio.get(ApiConfig.getRequestUrl('issues', page));
 
       if (response.data == null) {
         return null;

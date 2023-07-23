@@ -1,4 +1,5 @@
 import 'package:comic_vine/domain/blocs/cubit/comic_list_cubit.dart';
+import 'package:comic_vine/domain/models/comic_list/last_issues.model.dart';
 import 'package:comic_vine/presentation/screens/comic_list/widgets/comic_list.widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -18,8 +19,9 @@ class ComicListView extends StatelessWidget {
             return const LoadingView();
           },
           loaded: (lastIssuesData) {
-            print(lastIssuesData.results![0].name);
-            return const LoadedView();
+            return LoadedView(
+              lastIssuesData: lastIssuesData,
+            );
           },
           error: () {
             return const ErrorView();
@@ -57,18 +59,27 @@ class LoadingView extends StatelessWidget {
 class LoadedView extends StatelessWidget {
   const LoadedView({
     super.key,
+    required this.lastIssuesData,
   });
+
+  final LastIssues lastIssuesData;
 
   @override
   Widget build(BuildContext context) {
-    return const Column(
+    return Column(
       children: [
-        ActionBar(),
-        SizedBox(
+        const ActionBar(),
+        const SizedBox(
           height: 12,
         ),
-        Expanded(child: VerticalList()),
-        //Expanded(child: GridList()),
+        //Expanded(
+        //    child: VerticalList(
+        //  comics: lastIssuesData.results!,
+        //)),
+        Expanded(
+            child: GridList(
+          comics: lastIssuesData.results!,
+        )),
       ],
     );
   }

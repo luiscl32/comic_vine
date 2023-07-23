@@ -23,7 +23,7 @@ class ComicListPage extends StatelessWidget {
           horizontal: 16,
         ),
         child: BlocProvider(
-          create: (_) => ComicListCubit()..getLatestIssues(),
+          create: (_) => ComicListCubit()..getLatestIssues(page: '0'),
           child: const ComicListView(),
         ),
       ),
