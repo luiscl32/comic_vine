@@ -1,7 +1,14 @@
 import 'package:flutter/material.dart';
 
 class ActionBar extends StatelessWidget {
-  const ActionBar({super.key});
+  const ActionBar({
+    super.key,
+    required this.onPress,
+    required this.isActive,
+  });
+
+  final VoidCallback onPress;
+  final bool isActive;
 
   @override
   Widget build(BuildContext context) {
@@ -21,8 +28,10 @@ class ActionBar extends StatelessWidget {
             width: 48,
             height: 48,
             child: IconButton(
-              onPressed: () {},
-              icon: const Icon(Icons.list),
+              onPressed: onPress,
+              icon: Icon(
+                isActive ? Icons.grid_view_rounded : Icons.list,
+              ),
               iconSize: 32,
             ),
           )

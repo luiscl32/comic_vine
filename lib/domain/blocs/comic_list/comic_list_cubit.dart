@@ -8,10 +8,20 @@ part 'comic_list_cubit.freezed.dart';
 
 class ComicListCubit extends Cubit<ComicListState> {
   ComicListCubit() : super(const ComicListState.initial());
+  ComicListRepository repository = ComicListRepository();
 
   Future<void> getLatestIssues({required String page}) async {
-    ComicListRepository repository = ComicListRepository();
     emit(const ComicListState.loading());
+    repository.fetchLastIssues(page: page).then((lastIssuesData) {
+      if (lastIssuesData == null) {
+        emit(const ComicListState.error());
+      } else {
+        emit(ComicListState.loaded(lastIssuesData));
+      }
+    });
+  }
+
+  Future<void> getMoreIssues({required String page}) async {
     repository.fetchLastIssues(page: page).then((lastIssuesData) {
       if (lastIssuesData == null) {
         emit(const ComicListState.error());

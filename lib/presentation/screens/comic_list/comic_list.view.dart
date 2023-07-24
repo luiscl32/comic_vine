@@ -1,5 +1,6 @@
-import 'package:comic_vine/domain/blocs/cubit/comic_list_cubit.dart';
+import 'package:comic_vine/domain/blocs/comic_list/comic_list_cubit.dart';
 import 'package:comic_vine/domain/models/comic_list/last_issues.model.dart';
+
 import 'package:comic_vine/presentation/screens/comic_list/widgets/comic_list.widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -56,7 +57,7 @@ class LoadingView extends StatelessWidget {
   }
 }
 
-class LoadedView extends StatelessWidget {
+class LoadedView extends StatefulWidget {
   const LoadedView({
     super.key,
     required this.lastIssuesData,
@@ -65,21 +66,51 @@ class LoadedView extends StatelessWidget {
   final LastIssues lastIssuesData;
 
   @override
+  State<LoadedView> createState() => _LoadedViewState();
+}
+
+class _LoadedViewState extends State<LoadedView> {
+  ScrollController controller = ScrollController();
+  int page = 0;
+  bool listIsActive = false;
+
+  @override
+  void initState() {
+    controller.addListener(() {
+      if ((controller.position.pixels + 1500) >=
+          controller.position.maxScrollExtent) {
+        //page++;
+        //ComicListHandlers(context).fetchNewData(page.toString());
+      }
+    });
+
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Column(
       children: [
-        const ActionBar(),
+        ActionBar(
+          onPress: () => setState(
+            () {
+              listIsActive = !listIsActive;
+            },
+          ),
+          isActive: listIsActive,
+        ),
         const SizedBox(
           height: 12,
         ),
-        //Expanded(
-        //    child: VerticalList(
-        //  comics: lastIssuesData.results!,
-        //)),
         Expanded(
-            child: GridList(
-          comics: lastIssuesData.results!,
-        )),
+            child: listIsActive
+                ? GridList(
+                    controller: controller,
+                    comics: widget.lastIssuesData.results!,
+                  )
+                : VerticalList(
+                    comics: widget.lastIssuesData.results!,
+                  )),
       ],
     );
   }

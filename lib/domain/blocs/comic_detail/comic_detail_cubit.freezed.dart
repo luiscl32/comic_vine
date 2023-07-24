@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'comic_list_cubit.dart';
+part of 'comic_detail_cubit.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -15,12 +15,12 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
-mixin _$ComicListState {
+mixin _$ComicDetailState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(LastIssues lastIssuesData) loaded,
+    required TResult Function(ComicDetail comicDetailData) loaded,
     required TResult Function() error,
   }) =>
       throw _privateConstructorUsedError;
@@ -28,7 +28,7 @@ mixin _$ComicListState {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(LastIssues lastIssuesData)? loaded,
+    TResult? Function(ComicDetail comicDetailData)? loaded,
     TResult? Function()? error,
   }) =>
       throw _privateConstructorUsedError;
@@ -36,7 +36,7 @@ mixin _$ComicListState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(LastIssues lastIssuesData)? loaded,
+    TResult Function(ComicDetail comicDetailData)? loaded,
     TResult Function()? error,
     required TResult orElse(),
   }) =>
@@ -69,16 +69,16 @@ mixin _$ComicListState {
 }
 
 /// @nodoc
-abstract class $ComicListStateCopyWith<$Res> {
-  factory $ComicListStateCopyWith(
-          ComicListState value, $Res Function(ComicListState) then) =
-      _$ComicListStateCopyWithImpl<$Res, ComicListState>;
+abstract class $ComicDetailStateCopyWith<$Res> {
+  factory $ComicDetailStateCopyWith(
+          ComicDetailState value, $Res Function(ComicDetailState) then) =
+      _$ComicDetailStateCopyWithImpl<$Res, ComicDetailState>;
 }
 
 /// @nodoc
-class _$ComicListStateCopyWithImpl<$Res, $Val extends ComicListState>
-    implements $ComicListStateCopyWith<$Res> {
-  _$ComicListStateCopyWithImpl(this._value, this._then);
+class _$ComicDetailStateCopyWithImpl<$Res, $Val extends ComicDetailState>
+    implements $ComicDetailStateCopyWith<$Res> {
+  _$ComicDetailStateCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -95,7 +95,7 @@ abstract class _$$_InitialCopyWith<$Res> {
 
 /// @nodoc
 class __$$_InitialCopyWithImpl<$Res>
-    extends _$ComicListStateCopyWithImpl<$Res, _$_Initial>
+    extends _$ComicDetailStateCopyWithImpl<$Res, _$_Initial>
     implements _$$_InitialCopyWith<$Res> {
   __$$_InitialCopyWithImpl(_$_Initial _value, $Res Function(_$_Initial) _then)
       : super(_value, _then);
@@ -108,7 +108,7 @@ class _$_Initial implements _Initial {
 
   @override
   String toString() {
-    return 'ComicListState.initial()';
+    return 'ComicDetailState.initial()';
   }
 
   @override
@@ -125,7 +125,7 @@ class _$_Initial implements _Initial {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(LastIssues lastIssuesData) loaded,
+    required TResult Function(ComicDetail comicDetailData) loaded,
     required TResult Function() error,
   }) {
     return initial();
@@ -136,7 +136,7 @@ class _$_Initial implements _Initial {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(LastIssues lastIssuesData)? loaded,
+    TResult? Function(ComicDetail comicDetailData)? loaded,
     TResult? Function()? error,
   }) {
     return initial?.call();
@@ -147,7 +147,7 @@ class _$_Initial implements _Initial {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(LastIssues lastIssuesData)? loaded,
+    TResult Function(ComicDetail comicDetailData)? loaded,
     TResult Function()? error,
     required TResult orElse(),
   }) {
@@ -195,7 +195,7 @@ class _$_Initial implements _Initial {
   }
 }
 
-abstract class _Initial implements ComicListState {
+abstract class _Initial implements ComicDetailState {
   const factory _Initial() = _$_Initial;
 }
 
@@ -208,7 +208,7 @@ abstract class _$$_LoadingCopyWith<$Res> {
 
 /// @nodoc
 class __$$_LoadingCopyWithImpl<$Res>
-    extends _$ComicListStateCopyWithImpl<$Res, _$_Loading>
+    extends _$ComicDetailStateCopyWithImpl<$Res, _$_Loading>
     implements _$$_LoadingCopyWith<$Res> {
   __$$_LoadingCopyWithImpl(_$_Loading _value, $Res Function(_$_Loading) _then)
       : super(_value, _then);
@@ -221,7 +221,7 @@ class _$_Loading implements _Loading {
 
   @override
   String toString() {
-    return 'ComicListState.loading()';
+    return 'ComicDetailState.loading()';
   }
 
   @override
@@ -238,7 +238,7 @@ class _$_Loading implements _Loading {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(LastIssues lastIssuesData) loaded,
+    required TResult Function(ComicDetail comicDetailData) loaded,
     required TResult Function() error,
   }) {
     return loading();
@@ -249,7 +249,7 @@ class _$_Loading implements _Loading {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(LastIssues lastIssuesData)? loaded,
+    TResult? Function(ComicDetail comicDetailData)? loaded,
     TResult? Function()? error,
   }) {
     return loading?.call();
@@ -260,7 +260,7 @@ class _$_Loading implements _Loading {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(LastIssues lastIssuesData)? loaded,
+    TResult Function(ComicDetail comicDetailData)? loaded,
     TResult Function()? error,
     required TResult orElse(),
   }) {
@@ -308,7 +308,7 @@ class _$_Loading implements _Loading {
   }
 }
 
-abstract class _Loading implements ComicListState {
+abstract class _Loading implements ComicDetailState {
   const factory _Loading() = _$_Loading;
 }
 
@@ -317,12 +317,12 @@ abstract class _$$_LoadedCopyWith<$Res> {
   factory _$$_LoadedCopyWith(_$_Loaded value, $Res Function(_$_Loaded) then) =
       __$$_LoadedCopyWithImpl<$Res>;
   @useResult
-  $Res call({LastIssues lastIssuesData});
+  $Res call({ComicDetail comicDetailData});
 }
 
 /// @nodoc
 class __$$_LoadedCopyWithImpl<$Res>
-    extends _$ComicListStateCopyWithImpl<$Res, _$_Loaded>
+    extends _$ComicDetailStateCopyWithImpl<$Res, _$_Loaded>
     implements _$$_LoadedCopyWith<$Res> {
   __$$_LoadedCopyWithImpl(_$_Loaded _value, $Res Function(_$_Loaded) _then)
       : super(_value, _then);
@@ -330,13 +330,13 @@ class __$$_LoadedCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? lastIssuesData = freezed,
+    Object? comicDetailData = null,
   }) {
     return _then(_$_Loaded(
-      freezed == lastIssuesData
-          ? _value.lastIssuesData
-          : lastIssuesData // ignore: cast_nullable_to_non_nullable
-              as LastIssues,
+      null == comicDetailData
+          ? _value.comicDetailData
+          : comicDetailData // ignore: cast_nullable_to_non_nullable
+              as ComicDetail,
     ));
   }
 }
@@ -344,14 +344,14 @@ class __$$_LoadedCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_Loaded implements _Loaded {
-  const _$_Loaded(this.lastIssuesData);
+  const _$_Loaded(this.comicDetailData);
 
   @override
-  final LastIssues lastIssuesData;
+  final ComicDetail comicDetailData;
 
   @override
   String toString() {
-    return 'ComicListState.loaded(lastIssuesData: $lastIssuesData)';
+    return 'ComicDetailState.loaded(comicDetailData: $comicDetailData)';
   }
 
   @override
@@ -359,13 +359,12 @@ class _$_Loaded implements _Loaded {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Loaded &&
-            const DeepCollectionEquality()
-                .equals(other.lastIssuesData, lastIssuesData));
+            (identical(other.comicDetailData, comicDetailData) ||
+                other.comicDetailData == comicDetailData));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType, const DeepCollectionEquality().hash(lastIssuesData));
+  int get hashCode => Object.hash(runtimeType, comicDetailData);
 
   @JsonKey(ignore: true)
   @override
@@ -378,10 +377,10 @@ class _$_Loaded implements _Loaded {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(LastIssues lastIssuesData) loaded,
+    required TResult Function(ComicDetail comicDetailData) loaded,
     required TResult Function() error,
   }) {
-    return loaded(lastIssuesData);
+    return loaded(comicDetailData);
   }
 
   @override
@@ -389,10 +388,10 @@ class _$_Loaded implements _Loaded {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(LastIssues lastIssuesData)? loaded,
+    TResult? Function(ComicDetail comicDetailData)? loaded,
     TResult? Function()? error,
   }) {
-    return loaded?.call(lastIssuesData);
+    return loaded?.call(comicDetailData);
   }
 
   @override
@@ -400,12 +399,12 @@ class _$_Loaded implements _Loaded {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(LastIssues lastIssuesData)? loaded,
+    TResult Function(ComicDetail comicDetailData)? loaded,
     TResult Function()? error,
     required TResult orElse(),
   }) {
     if (loaded != null) {
-      return loaded(lastIssuesData);
+      return loaded(comicDetailData);
     }
     return orElse();
   }
@@ -448,10 +447,10 @@ class _$_Loaded implements _Loaded {
   }
 }
 
-abstract class _Loaded implements ComicListState {
-  const factory _Loaded(final LastIssues lastIssuesData) = _$_Loaded;
+abstract class _Loaded implements ComicDetailState {
+  const factory _Loaded(final ComicDetail comicDetailData) = _$_Loaded;
 
-  LastIssues get lastIssuesData;
+  ComicDetail get comicDetailData;
   @JsonKey(ignore: true)
   _$$_LoadedCopyWith<_$_Loaded> get copyWith =>
       throw _privateConstructorUsedError;
@@ -465,7 +464,7 @@ abstract class _$$_ErrorCopyWith<$Res> {
 
 /// @nodoc
 class __$$_ErrorCopyWithImpl<$Res>
-    extends _$ComicListStateCopyWithImpl<$Res, _$_Error>
+    extends _$ComicDetailStateCopyWithImpl<$Res, _$_Error>
     implements _$$_ErrorCopyWith<$Res> {
   __$$_ErrorCopyWithImpl(_$_Error _value, $Res Function(_$_Error) _then)
       : super(_value, _then);
@@ -478,7 +477,7 @@ class _$_Error implements _Error {
 
   @override
   String toString() {
-    return 'ComicListState.error()';
+    return 'ComicDetailState.error()';
   }
 
   @override
@@ -495,7 +494,7 @@ class _$_Error implements _Error {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(LastIssues lastIssuesData) loaded,
+    required TResult Function(ComicDetail comicDetailData) loaded,
     required TResult Function() error,
   }) {
     return error();
@@ -506,7 +505,7 @@ class _$_Error implements _Error {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(LastIssues lastIssuesData)? loaded,
+    TResult? Function(ComicDetail comicDetailData)? loaded,
     TResult? Function()? error,
   }) {
     return error?.call();
@@ -517,7 +516,7 @@ class _$_Error implements _Error {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(LastIssues lastIssuesData)? loaded,
+    TResult Function(ComicDetail comicDetailData)? loaded,
     TResult Function()? error,
     required TResult orElse(),
   }) {
@@ -565,6 +564,6 @@ class _$_Error implements _Error {
   }
 }
 
-abstract class _Error implements ComicListState {
+abstract class _Error implements ComicDetailState {
   const factory _Error() = _$_Error;
 }

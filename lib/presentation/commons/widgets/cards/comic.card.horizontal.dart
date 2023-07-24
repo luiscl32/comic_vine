@@ -8,6 +8,7 @@ class ComicCardHorizontal extends StatelessWidget {
     required this.volumeName,
     required this.issueNumber,
     required this.issueDate,
+    required this.onPress,
   });
 
   final String image;
@@ -15,11 +16,12 @@ class ComicCardHorizontal extends StatelessWidget {
   final String name;
   final String issueNumber;
   final String issueDate;
+  final VoidCallback onPress;
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () {},
+      onTap: onPress,
       child: SizedBox(
         width: double.infinity,
         height: 120,

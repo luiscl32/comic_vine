@@ -8,6 +8,7 @@ class ComicCard extends StatelessWidget {
     required this.name,
     required this.issueNumber,
     required this.issueDate,
+    required this.onPress,
   });
 
   final String image;
@@ -15,6 +16,7 @@ class ComicCard extends StatelessWidget {
   final String name;
   final String issueNumber;
   final String issueDate;
+  final VoidCallback onPress;
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +24,7 @@ class ComicCard extends StatelessWidget {
     double height = MediaQuery.of(context).size.height;
 
     return InkWell(
-      onTap: () {},
+      onTap: onPress,
       child: SizedBox(
         width: MediaQuery.of(context).size.width * 0.40,
         child: Column(
