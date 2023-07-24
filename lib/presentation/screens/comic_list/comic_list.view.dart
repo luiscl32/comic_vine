@@ -26,7 +26,9 @@ class ComicListView extends StatelessWidget {
             );
           },
           error: () {
-            return const ErrorView();
+            return NetworkError(onPress: () {
+              context.read<ComicListCubit>().getLatestIssues(page: '0');
+            });
           },
         );
       },
@@ -42,19 +44,6 @@ class ErrorView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Center(child: Text('Error'));
-  }
-}
-
-class LoadingView extends StatelessWidget {
-  const LoadingView({
-    super.key,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return const Center(
-      child: Text('loading ...'),
-    );
   }
 }
 

@@ -7,22 +7,25 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../domain/models/comic_detail/comic_detail.model.dart';
 
 class ComicDetailView extends StatelessWidget {
-  const ComicDetailView({Key? key}) : super(key: key);
+  const ComicDetailView({Key? key, required this.comicId}) : super(key: key);
+
+  final int comicId;
 
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<ComicDetailCubit, ComicDetailState>(
       builder: (context, state) {
         return state.when(
-          initial: () => Container(),
-          loading: () => const ComicDetailShimmer(),
-          loaded: (comicDetailData) => ComicDetailLoadedView(
-            comicDetailData: comicDetailData,
-          ),
-          error: () => Center(
-            child: Text('error'),
-          ),
-        );
+            initial: () => Container(),
+            loading: () => const ComicDetailShimmer(),
+            loaded: (comicDetailData) => ComicDetailLoadedView(
+                  comicDetailData: comicDetailData,
+                ),
+            error: () => NetworkError(
+                  onPress: () {
+                    context.read<ComicDetailCubit>().getComicDetail(comicId);
+                  },
+                ));
       },
     );
   }

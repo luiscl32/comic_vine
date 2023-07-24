@@ -83,7 +83,7 @@ class Results {
   final String? siteDetailUrl;
   final dynamic storeDate;
   final List<dynamic>? storyArcCredits;
-  final List<dynamic>? teamCredits;
+  final List<Volume>? teamCredits;
   final List<dynamic>? teamDisbandedIn;
   final Volume? volume;
 
@@ -176,10 +176,11 @@ class Results {
         storeDate: json["store_date"],
         storyArcCredits: json["story_arc_credits"] == null
             ? []
-            : List<dynamic>.from(json["story_arc_credits"]!.map((x) => x)),
+            : List<Volume>.from(json["story_arc_credits"]!.map((x) => x)),
         teamCredits: json["team_credits"] == null
             ? []
-            : List<dynamic>.from(json["team_credits"]!.map((x) => x)),
+            : List<Volume>.from(
+                json["team_credits"]!.map((x) => Volume.fromJson(x))),
         teamDisbandedIn: json["team_disbanded_in"] == null
             ? []
             : List<dynamic>.from(json["team_disbanded_in"]!.map((x) => x)),
@@ -194,13 +195,13 @@ class Results {
             : List<dynamic>.from(associatedImages!.map((x) => x.toJson())),
         "character_credits": characterCredits == null
             ? []
-            : List<dynamic>.from(characterCredits!.map((x) => x.toJson())),
+            : List<Volume>.from(characterCredits!.map((x) => x.toJson())),
         "character_died_in": characterDiedIn == null
             ? []
             : List<dynamic>.from(characterDiedIn!.map((x) => x)),
         "concept_credits": conceptCredits == null
             ? []
-            : List<dynamic>.from(conceptCredits!.map((x) => x.toJson())),
+            : List<Volume>.from(conceptCredits!.map((x) => x.toJson())),
         "cover_date":
             "${coverDate!.year.toString().padLeft(4, '0')}-${coverDate!.month.toString().padLeft(2, '0')}-${coverDate!.day.toString().padLeft(2, '0')}",
         "date_added": dateAdded?.toIso8601String(),
@@ -219,7 +220,7 @@ class Results {
         "issue_number": issueNumber,
         "location_credits": locationCredits == null
             ? []
-            : List<dynamic>.from(locationCredits!.map((x) => x.toJson())),
+            : List<Volume>.from(locationCredits!.map((x) => x.toJson())),
         "name": name,
         "object_credits": objectCredits == null
             ? []
@@ -234,7 +235,7 @@ class Results {
             : List<dynamic>.from(storyArcCredits!.map((x) => x)),
         "team_credits": teamCredits == null
             ? []
-            : List<dynamic>.from(teamCredits!.map((x) => x)),
+            : List<Volume>.from(teamCredits!.map((x) => x)),
         "team_disbanded_in": teamDisbandedIn == null
             ? []
             : List<dynamic>.from(teamDisbandedIn!.map((x) => x)),

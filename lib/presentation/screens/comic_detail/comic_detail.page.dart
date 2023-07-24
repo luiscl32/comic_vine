@@ -42,7 +42,7 @@ class ComicDetailPage extends StatelessWidget {
           ),
           centerTitle: true,
         ),
-        body: const ComicDetailView(),
+        body: ComicDetailView(comicId: routesData['idComic']!),
       ),
     );
   }
