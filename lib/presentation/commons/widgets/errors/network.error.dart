@@ -27,7 +27,7 @@ class NetworkError extends StatelessWidget {
               height: 12,
             ),
             const Text(
-              'An network error has been detected, please press refresh button to try again',
+              'A network error has been detected, please press the Refresh button to try again',
               style: TextStyle(fontSize: 20),
             ),
             Expanded(child: Container()),
