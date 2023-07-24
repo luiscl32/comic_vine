@@ -13,7 +13,7 @@ class ComicHeader extends StatelessWidget {
       child: FadeInImage.assetNetwork(
         placeholder: 'assets/loading.gif',
         image: image,
-        fit: BoxFit.cover,
+        fit: BoxFit.contain,
       ),
     );
   }

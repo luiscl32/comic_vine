@@ -20,14 +20,7 @@ class SectionByCategory extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<SubCategoryCubit, SubCategoryState>(
       builder: (context, state) {
-        if (data.isEmpty) {
-          return Center(
-              child: Text(
-            'This comic not have a $title',
-          ));
-        }
-
-        /** 
+        /** Todo
             context.read<SubCategoryCubit>().getSubCategoryImage(
                         type: type,
                         categoryId: categoryId,
@@ -73,22 +66,45 @@ class SectionCategory extends StatelessWidget {
         child: Column(
           children: [
             TitleSeparator(titleText: title),
-            ListView.separated(
-                physics: const NeverScrollableScrollPhysics(),
-                shrinkWrap: true,
-                itemBuilder: (_, index) {
-                  return ThumbnailCard(
-                    image: image,
-                    name: data[index].name!,
-                  );
-                },
-                separatorBuilder: (context, index) => const SizedBox(
-                      height: 12,
-                    ),
-                itemCount: data.length)
+            if (data.isEmpty)
+              Center(
+                  child: Text(
+                'This comic no have a $title',
+                style: const TextStyle(
+                    fontWeight: FontWeight.bold, color: Colors.black45),
+              )),
+            if (data.isNotEmpty) _SectionList(image: image, data: data)
           ],
         ),
       ),
     );
+  }
+}
+
+class _SectionList extends StatelessWidget {
+  const _SectionList({
+    super.key,
+    required this.image,
+    required this.data,
+  });
+
+  final String image;
+  final List data;
+
+  @override
+  Widget build(BuildContext context) {
+    return ListView.separated(
+        physics: const NeverScrollableScrollPhysics(),
+        shrinkWrap: true,
+        itemBuilder: (_, index) {
+          return ThumbnailCard(
+            image: image,
+            name: data[index].name!,
+          );
+        },
+        separatorBuilder: (context, index) => const SizedBox(
+              height: 12,
+            ),
+        itemCount: data.length);
   }
 }

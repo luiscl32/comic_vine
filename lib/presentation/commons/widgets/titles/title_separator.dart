@@ -13,7 +13,11 @@ class TitleSeparator extends StatelessWidget {
       children: [
         Text(
           titleText,
-          style: const TextStyle(fontSize: 20, color: Colors.black),
+          style: const TextStyle(
+            fontSize: 20,
+            color: Colors.black,
+            fontWeight: FontWeight.bold,
+          ),
         ),
         const SizedBox(
           height: 5,

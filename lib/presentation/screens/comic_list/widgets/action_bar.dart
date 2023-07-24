@@ -21,7 +21,10 @@ class ActionBar extends StatelessWidget {
         children: [
           const Text(
             'Latest issues',
-            style: TextStyle(fontSize: 16),
+            style: TextStyle(
+              fontSize: 16,
+              fontWeight: FontWeight.bold,
+            ),
           ),
           Expanded(child: Container()),
           SizedBox(
@@ -30,9 +33,9 @@ class ActionBar extends StatelessWidget {
             child: IconButton(
               onPressed: onPress,
               icon: Icon(
-                isActive ? Icons.grid_view_rounded : Icons.list,
+                isActive ? Icons.grid_view_sharp : Icons.list_alt_outlined,
               ),
-              iconSize: 32,
+              iconSize: 24,
             ),
           )
         ],

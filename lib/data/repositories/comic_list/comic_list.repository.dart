@@ -8,7 +8,7 @@ class ComicListRepository extends AbstractComicListRepository {
   Future<LastIssues?> fetchLastIssues({required String page}) async {
     try {
       final Dio dio = Dio();
-      print(ApiConfig.getRequestUrl('issues', page));
+
       final response = await dio.get(ApiConfig.getRequestUrl('issues', page));
 
       if (response.data == null) {

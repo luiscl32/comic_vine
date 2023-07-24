@@ -29,29 +29,44 @@ class ComicDetailShimmer extends StatelessWidget {
               color: Colors.grey,
             ),
           ),
-          Divider(
+          const Divider(
             color: Colors.black,
           ),
-          Padding(
-            padding: const EdgeInsets.all(16),
-            child: Row(
-              children: [
-                Container(
-                  width: 40,
-                  height: 40,
-                  color: Colors.grey,
-                ),
-                SizedBox(
-                  width: 12,
-                ),
-                Container(
-                  width: MediaQuery.of(context).size.width * 0.6,
-                  height: 18,
-                  color: Colors.grey,
-                ),
-              ],
-            ),
-          )
+          const _Category(),
+          const _Category(),
+          const _Category(),
+          const _Category(),
+          const _Category(),
+        ],
+      ),
+    );
+  }
+}
+
+class _Category extends StatelessWidget {
+  const _Category({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.all(16),
+      child: Row(
+        children: [
+          Container(
+            width: 40,
+            height: 40,
+            color: Colors.grey,
+          ),
+          const SizedBox(
+            width: 12,
+          ),
+          Container(
+            width: MediaQuery.of(context).size.width * 0.6,
+            height: 18,
+            color: Colors.grey,
+          ),
         ],
       ),
     );

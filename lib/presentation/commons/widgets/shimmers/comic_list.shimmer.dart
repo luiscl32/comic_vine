@@ -18,15 +18,15 @@ class ComicListShimmer extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Container(
-                width: 140,
-                height: 220,
+                width: 120,
+                height: 200,
                 color: Colors.grey,
               ),
               const SizedBox(
                 width: 12,
               ),
               Padding(
-                padding: const EdgeInsets.all(8.0),
+                padding: const EdgeInsets.all(16),
                 child: Column(
                   children: [
                     Container(

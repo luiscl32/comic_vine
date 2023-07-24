@@ -36,7 +36,10 @@ class ThumbnailTitle extends StatelessWidget {
       width: MediaQuery.of(context).size.width * 0.7,
       child: Text(
         name,
-        style: const TextStyle(fontSize: 14),
+        style: const TextStyle(
+          fontSize: 14,
+          fontWeight: FontWeight.bold,
+        ),
       ),
     );
   }

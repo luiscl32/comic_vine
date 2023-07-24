@@ -93,7 +93,10 @@ class ComicInfo extends StatelessWidget {
             width: MediaQuery.of(context).size.width * 0.6,
             child: Text(
               '$volumeName: $name #$issueNumber',
-              style: const TextStyle(fontSize: 14),
+              style: const TextStyle(
+                fontSize: 16,
+                fontWeight: FontWeight.bold,
+              ),
               overflow: TextOverflow.clip,
               maxLines: 4,
             ),
@@ -103,7 +106,10 @@ class ComicInfo extends StatelessWidget {
           ),
           Text(
             issueDate,
-            style: const TextStyle(fontSize: 12),
+            style: const TextStyle(
+              fontSize: 14,
+              color: Colors.black45,
+            ),
           )
         ],
       ),

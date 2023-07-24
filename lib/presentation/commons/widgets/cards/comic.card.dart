@@ -35,9 +35,7 @@ class ComicCard extends StatelessWidget {
             ),
             ComicInfoGrid(
                 volumeName: volumeName, name: name, issueNumber: issueNumber),
-            const SizedBox(
-              height: 5,
-            ),
+            Expanded(child: Container()),
             ComicDateAdded(issueDate: issueDate)
           ],
         ),
@@ -61,7 +59,8 @@ class ComicDateAdded extends StatelessWidget {
       child: Text(
         issueDate,
         style: const TextStyle(
-          fontSize: 10,
+          fontSize: 12,
+          color: Colors.black45,
         ),
       ),
     );
@@ -87,7 +86,8 @@ class ComicInfoGrid extends StatelessWidget {
       child: Text(
         '$volumeName: $name #$issueNumber',
         style: const TextStyle(
-          fontSize: 12,
+          fontSize: 14,
+          fontWeight: FontWeight.bold,
         ),
         maxLines: 2,
         overflow: TextOverflow.clip,

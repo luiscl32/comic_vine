@@ -3,6 +3,7 @@ import 'package:comic_vine/presentation/commons/widgets/widgets.dart';
 import 'package:comic_vine/presentation/screens/comic_detail/widgets/comic_detail.widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:intl/intl.dart';
 
 import '../../../domain/models/comic_detail/comic_detail.model.dart';
 
@@ -46,8 +47,12 @@ class ComicDetailLoadedView extends StatelessWidget {
     final teamList = comicDetailData.results!.teamCredits!;
     final locationList = comicDetailData.results!.locationCredits!;
     final conceptsList = comicDetailData.results!.conceptCredits!;
+    final description = Bidi.stripHtmlIfNeeded(
+        comicDetailData.results!.description ??
+            'This comic no have a description.');
 
     return SingleChildScrollView(
+      physics: const BouncingScrollPhysics(),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         crossAxisAlignment: CrossAxisAlignment.center,
@@ -56,7 +61,11 @@ class ComicDetailLoadedView extends StatelessWidget {
             image: imageComic,
           ),
           const SizedBox(
-            height: 12,
+            height: 24,
+          ),
+          Description(description: description),
+          const SizedBox(
+            height: 24,
           ),
           SectionByCategory(
             title: 'Characters',

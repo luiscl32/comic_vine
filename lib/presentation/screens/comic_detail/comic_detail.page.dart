@@ -1,5 +1,6 @@
 import 'package:comic_vine/domain/blocs/comic_detail/comic_detail_cubit.dart';
 import 'package:comic_vine/domain/blocs/sub_category/sub_category_cubit.dart';
+import 'package:comic_vine/presentation/commons/widgets/widgets.dart';
 import 'package:comic_vine/presentation/screens/comic_detail/comic_detail.view.dart';
 import 'package:comic_vine/presentation/screens/comic_detail/handlers/comic_detail.handlers.dart';
 import 'package:flutter/material.dart';
@@ -36,9 +37,8 @@ class ComicDetailPage extends StatelessWidget {
               ComicDetailHandlers(context).onGoBack();
             },
           ),
-          title: const Text(
-            'Comic book',
-            style: TextStyle(color: Colors.black),
+          title: const AppBarTitle(
+            title: 'Comic detail',
           ),
           centerTitle: true,
         ),
