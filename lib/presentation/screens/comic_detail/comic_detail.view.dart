@@ -1,4 +1,5 @@
 import 'package:comic_vine/domain/blocs/comic_detail/comic_detail_cubit.dart';
+import 'package:comic_vine/presentation/commons/widgets/widgets.dart';
 import 'package:comic_vine/presentation/screens/comic_detail/widgets/comic_detail.widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -14,9 +15,7 @@ class ComicDetailView extends StatelessWidget {
       builder: (context, state) {
         return state.when(
           initial: () => Container(),
-          loading: () => Center(
-            child: Text('loading'),
-          ),
+          loading: () => const ComicDetailShimmer(),
           loaded: (comicDetailData) => ComicDetailLoadedView(
             comicDetailData: comicDetailData,
           ),
@@ -53,7 +52,7 @@ class ComicDetailLoadedView extends StatelessWidget {
           ComicHeader(
             image: imageComic,
           ),
-          SizedBox(
+          const SizedBox(
             height: 12,
           ),
           SectionByCategory(
@@ -62,7 +61,7 @@ class ComicDetailLoadedView extends StatelessWidget {
             data: characterList,
             categoryId: 4005,
           ),
-          SizedBox(
+          const SizedBox(
             height: 12,
           ),
           SectionByCategory(
@@ -71,7 +70,7 @@ class ComicDetailLoadedView extends StatelessWidget {
             data: teamList,
             categoryId: 4060,
           ),
-          SizedBox(
+          const SizedBox(
             height: 12,
           ),
           SectionByCategory(
@@ -80,7 +79,7 @@ class ComicDetailLoadedView extends StatelessWidget {
             data: locationList,
             categoryId: 4020,
           ),
-          SizedBox(
+          const SizedBox(
             height: 12,
           ),
           SectionByCategory(

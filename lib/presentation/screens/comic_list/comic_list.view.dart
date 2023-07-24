@@ -1,8 +1,9 @@
+import 'package:flutter/material.dart';
 import 'package:comic_vine/domain/blocs/comic_list/comic_list_cubit.dart';
 import 'package:comic_vine/domain/models/comic_list/last_issues.model.dart';
+import 'package:comic_vine/presentation/commons/widgets/widgets.dart';
 
 import 'package:comic_vine/presentation/screens/comic_list/widgets/comic_list.widgets.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class ComicListView extends StatelessWidget {
@@ -17,7 +18,7 @@ class ComicListView extends StatelessWidget {
             return Container();
           },
           loading: () {
-            return const LoadingView();
+            return const ComicListShimmer();
           },
           loaded: (lastIssuesData) {
             return LoadedView(
